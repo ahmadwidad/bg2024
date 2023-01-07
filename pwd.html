@@ -1,0 +1,53 @@
+<html>
+<body>
+    <form action="">
+<table>
+<tr>
+    <td>Merek Semen</td>
+    <td>:</td>
+    <td><input type="text" id="merkSemen" name="merkSemen"></td>
+</tr>
+<tr>
+    <td>Harga PerSak</td>
+    <td>:</td>
+    <td><input type="text" id="harga" name="harga"></td>
+</tr>
+<tr>
+    <td>Jumlah Pembelian</td>
+    <td>:</td>
+    <td><input type="text" id="jmlhPembelian" name="jmlhPembelian"></td>
+</tr>
+<tr>
+    <td><input type="button" value="Kirim" onclick="Functions()"></td>
+</tr>
+</table>
+</form>
+<script>
+    Functions () {
+  // Meminta input dari user
+  var merkSemen = document.getElementById("merkSemen").value;
+  var hargaPerSak =  document.getElementById("harga").value;
+  var jumlahPembelian = document.getElementById("jmlhPembelian").value;
+
+  // Menghitung total biaya yang harus dibayar
+  var totalBiaya = hargaPerSak * jumlahPembelian;
+
+  // Menghitung diskon apabila pembelian lebih dari 10 sak semen
+  if (jumlahPembelian > 10) {
+    totalBiaya = totalBiaya - (totalBiaya * 0.05);
+  }
+
+  // Menghitung biaya pengiriman apabila pembelian kurang dari 10 sak semen
+  if (jumlahPembelian < 10) {
+    totalBiaya = totalBiaya + 5000;
+  }
+
+  // Menampilkan hasil di halaman web browser
+  document.write("Merek Semen: " + merkSemen + "<br>");
+  document.write("Jumlah Pembelian: " + jumlahPembelian + "<br>");
+  document.write("Total Biaya yang Harus Dibayar: Rp. " + totalBiaya);
+}
+</script>
+
+</body>
+</html>
